@@ -2,14 +2,14 @@ var canvas = document.getElementById('canvas');
 var context = canvas.getContext('2d');
 
 var radius = 5;
-var drag = false;
+var dragging = false;
 
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 context.lineWidth = radius*2;
 
 var putPoint = function(e){
-	if(drag){
+	if(dragging){
 		context.lineTo(e.clientX, e.clientY);
 		context.stroke();
 		context.beginPath();
@@ -21,12 +21,12 @@ var putPoint = function(e){
 }
 
 var engage = function(e){
-	drag = true;
+	dragging = true;
 	putPoint(e);
 }
 
 var disengage = function(){
-	drag = false;
+	dragging = false;
 	context.beginPath();
 }
 canvas.addEventListener('mousemove',putPoint);
