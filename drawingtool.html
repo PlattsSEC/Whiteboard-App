@@ -11,16 +11,16 @@
 		<div id="toolbar">
 			<div id="rad">Radius
 				<span id="radval">5</span>
-				<div id="incrad" onclick="myFunction()" class="radcontrol">+</div>
-				<div id="decrad" onclick="myFunction()" class="radcontrol">-</div>			
+				<button id="incrad" onclick="myFunction()" class="radcontrol">+</button>
+				<button id="decrad" onclick="myFunction()" class="radcontrol">-</button>			
 		    </div>
 			
 			<div id="colours"> Pick any color
-				<div class="palette current"></div>
-				<div class="palette"></div>
-				<div class="palette"></div>
-				<div class="palette"></div>
-				<div class="palette"></div>
+				<div class="palette current" style="background-color:red"></div>
+				<div class="palette" style="background-color:cyan"></div>
+				<div class="palette" style="background-color:green"></div>
+				<div class="palette" style="background-color:orange"></div>
+				<div class="palette" style="background-color:black"></div>
 			</div>
 			
 		</div>
@@ -29,10 +29,8 @@
 		</canvas>
 		<script src="main.js"></script>
 		<script src="radius.js"></script>
+		<script src="palette.js"></script>
 
 
 
 </body>
-
-
-</html>
