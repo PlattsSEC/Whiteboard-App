@@ -7,6 +7,14 @@ var setRadius = function(newRadius){
 		context.lineWidth = radius*2;
 		radSpan.innerHTML=radius;
 }
+var slider = document.getElementById("slider");
+
+var sliderChange  = function(val){
+	
+	slider.innerHTML = val;
+	setRadius(val);
+}
+
 
 
 
