@@ -12,7 +12,9 @@
 			<div id="rad">Radius
 				<span id="radval">5</span>
 				<button id="incrad" onclick="myFunction()" class="radcontrol">+</button>
-				<button id="decrad" onclick="myFunction()" class="radcontrol">-</button>			
+				<button id="decrad" onclick="myFunction()" class="radcontrol">-</button>
+				<input  type="range" min="5" max="100" value="5" step="1" onChange="sliderChange(this.value)"/>
+				<span id="slider">5</span>
 		    </div>
 			
 			<div id="colours"> Pick any color
