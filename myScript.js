@@ -17,6 +17,7 @@ function onMouseDown(event) {
 	path = new Path({
 		segments: [event.point],
 		strokeColor: 'black',
+		strokeWidth: 5
 		// Select the path, so we can see its segment points:
 		//fullySelected: true
 	});
