@@ -20,7 +20,7 @@ var sliderChange  = function(val){
 
 
 
-var minRad=5,
+var minRad=1,
 	maxRad=100,
 	defaultRad=5,
 	interval=1,
