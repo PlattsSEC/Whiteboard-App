@@ -1,6 +1,6 @@
 // Make the paper scope global, by injecting it into window:
 
-// global variab;e for color 
+// global variable for color 
 var current_color = 'black';
 
 paper.install(window);
@@ -71,7 +71,7 @@ tool.onMouseUp=function(event) {
 	//textItem.content = difference + ' of the ' + segmentCount + ' segments were removed. Saving ' + percentage + '%';
 }
 
-//pallette shit
+//color palette stuff goes here
 var palettes = document.getElementsByClassName('palette');
     
 // adding event listeners to the palettes    
@@ -80,26 +80,12 @@ for (var i=0; i<palettes.length;i++)
 	palettes[i].addEventListener('click',setPalette);
 	
 }
+
    
-    /*
- function setColor(color){
-	context.fillStyle = color;
-	path.strokeColor = color;
-	var active = document.getElementsByClassName('current')[0]; //only one element in the array because there should be only one active element at a time 
-    if (active){
-		active.className = 'palette';
-	     }
-}   
-
-*/
-    
-
-
  function setPalette(e) 
 {  //identify palette
 	var palette = e.target;
-   //set color
-   //setColor(palette.style.backgroundColor);
+
     var active = document.getElementsByClassName('current')[0]; //only one element in the array because there should be only one active element at a time 
     if (active){
 		active.className = 'palette';
@@ -110,12 +96,7 @@ for (var i=0; i<palettes.length;i++)
 	
     current_color = palette.style.backgroundColor;
 	
-	
-	
 }
     
-    
-
-
-
+   
 }
