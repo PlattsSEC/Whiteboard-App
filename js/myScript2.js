@@ -1,9 +1,13 @@
 // Make the paper scope global, by injecting it into window:
 
+// global variab;e for color 
+var current_color = 'black';
+
 paper.install(window);
 window.onload = function() {
 // Setup directly from canvas id:
 var canvas = document.getElementById('myCanvas')
+var context = canvas.getContext('2d');
 paper.setup(canvas);
 
 var path = new paper.Path();
@@ -25,11 +29,17 @@ tool.onMouseDown= function(event) {
 	// Create a new path and set its stroke color to black:
 	path = new paper.Path({
 		segments: [event.point],
-		strokeColor: 'red',
+		//strokeColor: 'red',
+        
 		strokeWidth: 5,
 		// Select the path, so we can see its segment points:
 		//fullySelected: true
 	});
+    
+    path.strokeColor = current_color;
+   
+    
+    
 }
 
 // While the user drags the mouse, points are added to the path
@@ -60,5 +70,52 @@ tool.onMouseUp=function(event) {
 	//var percentage = 100 - Math.round(newSegmentCount / segmentCount * 100);
 	//textItem.content = difference + ' of the ' + segmentCount + ' segments were removed. Saving ' + percentage + '%';
 }
+
+//pallette shit
+var palettes = document.getElementsByClassName('palette');
+    
+// adding event listeners to the palettes    
+for (var i=0; i<palettes.length;i++)
+{
+	palettes[i].addEventListener('click',setPalette);
+	
+}
+   
+    /*
+ function setColor(color){
+	context.fillStyle = color;
+	path.strokeColor = color;
+	var active = document.getElementsByClassName('current')[0]; //only one element in the array because there should be only one active element at a time 
+    if (active){
+		active.className = 'palette';
+	     }
+}   
+
+*/
+    
+
+
+ function setPalette(e) 
+{  //identify palette
+	var palette = e.target;
+   //set color
+   //setColor(palette.style.backgroundColor);
+    var active = document.getElementsByClassName('current')[0]; //only one element in the array because there should be only one active element at a time 
+    if (active){
+		active.className = 'palette';
+	     }
+   
+   //give active class
+	palette.className += ' current';
+	
+    current_color = palette.style.backgroundColor;
+	
+	
+	
+}
+    
+    
+
+
 
 }
