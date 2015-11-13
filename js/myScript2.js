@@ -31,7 +31,7 @@ tool.onMouseDown= function(event) {
 		segments: [event.point],
 		//strokeColor: 'red',
         
-		strokeWidth: 5,
+		strokeWidth: width,
 		// Select the path, so we can see its segment points:
 		//fullySelected: true
 	});
@@ -96,6 +96,33 @@ for (var i=0; i<palettes.length;i++)
 	
     current_color = palette.style.backgroundColor;
 	
+}
+
+// the default width
+width = 5;
+textItem.content = 'Current Radius : ' + width;
+
+//for increasing width
+var incrad = document.getElementById('incrad');
+incrad.addEventListener('click',inc_rad);  
+
+function inc_rad(){
+
+width = width + 1;
+textItem.content = 'Current Radius : ' + width;
+
+}  
+
+//for decreasing width
+
+var decrad = document.getElementById('decrad');
+decrad.addEventListener('click',dec_rad);
+
+function dec_rad(){
+
+width = width - 1;
+textItem.content = 'Current Radius : ' + width;
+
 }
     
    
