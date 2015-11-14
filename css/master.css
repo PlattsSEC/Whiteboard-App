@@ -1,0 +1,73 @@
+*{
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	font-family: Arial;
+	
+}
+
+#welcome{
+	text-align: center ;
+	height: 10% ;
+	width: 100% ;
+	background-color: #3EA0C7 ;
+	padding: 20px ;
+}
+
+
+
+
+#toolbar{
+	width: 15% ;
+	height: 100%;
+	padding: 10px;
+	position: fixed;
+	left: 0;
+	background-color: #366480;
+	color: white;
+	
+	}
+
+#rad{
+	float: left;
+}
+	
+.radcontrol{
+
+	width: 30px;
+	height: 30px;
+	background-color: #558BAF;
+	display: inline-block;
+	text-align: center;
+	padding: 5px;
+
+}
+
+
+#colours{
+float: right;
+text-align: center;
+
+}
+
+.palette {
+	width:  30px;
+	height: 30px;
+	border: 15px;
+	box-shadow: inset 0px 1px 1px rgba(255, 255, 255, 0.5), 0px 1px 1px rgba(255, 255, 255, 0.5);
+	display: inline-block;
+	margin:left;
+	background-color:purple;
+	padding: 5px;
+}
+
+.palette.current{
+	border: 3px solid grey;
+	box-shadow: inset 0px 2px 2px rgba(0,0,0,0.5);
+	
+}
+
+#pencil{
+	
+	cursor: url(pencil.png) 30 25, auto;
+}
+}

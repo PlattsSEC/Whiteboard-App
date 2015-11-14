@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+	<style type="text/css">
+	body{background-color:white;}
+	</style>
+	<title>My First Drawing App</title>
+	<link rel="stylesheet" href="css/master.css">
+</head>
+<body style='margin: 0'>
+		<div id="toolbar">
+		<div id= "welcome" > app name here</div>
+			<div id="rad">Radius
+				<span id="radval">5</span>
+				<button id="incrad" onclick="myFunction()" class="radcontrol">+</button>
+				<button id="decrad" onclick="myFunction()" class="radcontrol">-</button>
+				<input  type="range" min="5" max="100" value="5" step="1" onChange="sliderChange(this.value)"/>
+				<span id="slider">5</span>
+		    </div>
+			
+			<div id="colours"> Pick any color
+				<div class="palette current" style="background-color:black"></div>
+				<div class="palette" style="background-color:cyan"></div>
+				<div class="palette" style="background-color:green"></div>
+				<div class="palette" style="background-color:orange"></div>
+				<div class="palette" style="background-color:red"></div>
+				<div class="palette" style="background-color:violet"></div>
+				<div class="palette" style="background-color:yellow"></div>
+				<div class="palette" style="background-color:indigo"></div>
+				<div class="palette" style="background-color:white"></div>
+			</div>
+			
+		</div>
+		<span id="pencil">
+		<canvas id="canvas">
+			Sorry, your browser doesn't support HTML5
+		</canvas>
+		</span>
+		<script src="js/main.js"></script>
+		<script src="js/radius.js"></script>
+		<script src="js/palette.js"></script>
+
+
+
+</body>
