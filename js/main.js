@@ -2,6 +2,7 @@
 
 // global variable for color 
 var current_color = 'black';
+var dataRef = new Firebase('https://bok8q9j6znu.firebaseio-demo.com/');
 
 paper.install(window);
 window.onload = function() {
@@ -69,6 +70,8 @@ tool.onMouseUp=function(event) {
 	//var difference = segmentCount - newSegmentCount;
 	//var percentage = 100 - Math.round(newSegmentCount / segmentCount * 100);
 	//textItem.content = difference + ' of the ' + segmentCount + ' segments were removed. Saving ' + percentage + '%';
+	var pathSegments = path.segments;
+	
 }
 
 //color palette stuff goes here
