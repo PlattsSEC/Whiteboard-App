@@ -70,8 +70,8 @@ tool.onMouseUp=function(event) {
 	//var difference = segmentCount - newSegmentCount;
 	//var percentage = 100 - Math.round(newSegmentCount / segmentCount * 100);
 	//textItem.content = difference + ' of the ' + segmentCount + ' segments were removed. Saving ' + percentage + '%';
-	var pathSegments = path.segments;
-	
+    var pathSegments = path.segments;
+
 }
 
 //color palette stuff goes here
