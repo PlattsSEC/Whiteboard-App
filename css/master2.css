@@ -7,7 +7,7 @@ text-align: center;
 .palette {
 	width:  30px;
 	height: 30px;
-	border: 15px;
+	border: 2px solid black;
 	box-shadow: inset 0px 1px 1px rgba(255, 255, 255, 0.5), 0px 1px 1px rgba(255, 255, 255, 0.5);
 	display: inline-block;
 	margin:left;
