@@ -3,7 +3,7 @@
 // global variable for color 
 var current_color = 'black';
 //Firebase reference
-var dataRef = new Firebase('https://bok8q9j6znu.firebaseio-demo.com/');
+var ref = new Firebase('https://bok8q9j6znu.firebaseio-demo.com/');
 
 paper.install(window);
 window.onload = function() {
