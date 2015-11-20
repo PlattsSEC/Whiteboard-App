@@ -151,6 +151,15 @@ textItem.content = 'Current Radius : ' + width;
 
 }
 
+/*
+
+TODO: create a class for point
+TODO: create a class for segments which would have three instance variables(three points of a segment)
+TODO: figure out how to fetch the three points from the an instance of the Paper.js Segment class
+TODO: store those segments in an array to send it to Firebase
+
+
+*/
 
    
 }
