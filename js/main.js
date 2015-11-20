@@ -48,6 +48,22 @@ tool.onMouseDown= function(event) {
    
     console.log(path.segments);
     
+        //listening for data
+    
+    ref.on("value",function(snapshot){
+        
+        var json_path_data = snapshot.val().json_str;
+
+        console.log(json_path_data);
+        //console.log(path.importJSON(json_path_data));
+        var new_path = new Path();
+        //new_path.add(new_path.importJSON(json_path_data));
+        new_path.add(new_path.importJSON(json_path_data));
+
+
+});
+
+    
 }
 
 // While the user drags the mouse, points are added to the path
@@ -135,17 +151,6 @@ textItem.content = 'Current Radius : ' + width;
 
 }
 
-//listening for data
 
-ref.on("value",function(snapshot){
-
-console.log(json_path_data);
-//console.log(path.importJSON(json_path_data));
-var new_path = new Path();
-//new_path.add(new_path.importJSON(json_path_data));
-new_path.add(new_path.importJSON(json_path_data));
-
-
-});
    
 }
