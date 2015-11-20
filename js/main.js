@@ -2,6 +2,7 @@
 
 // global variable for color 
 var current_color = 'black';
+//Firebase reference
 var dataRef = new Firebase('https://bok8q9j6znu.firebaseio-demo.com/');
 
 paper.install(window);
@@ -38,8 +39,14 @@ tool.onMouseDown= function(event) {
 	});
     
     path.strokeColor = current_color;
-   
     
+    //sending data to Firebase
+    
+    ref.set({
+    	json_str : path.exportJSON(path.segments)	
+    });
+   
+    console.log(path.segments);
     
 }
 
@@ -127,6 +134,18 @@ width = width - 1;
 textItem.content = 'Current Radius : ' + width;
 
 }
-    
+
+//listening for data
+
+ref.on("value",function(snapshot){
+
+console.log(json_path_data);
+//console.log(path.importJSON(json_path_data));
+var new_path = new Path();
+//new_path.add(new_path.importJSON(json_path_data));
+new_path.add(new_path.importJSON(json_path_data));
+
+
+});
    
 }
