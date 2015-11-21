@@ -44,49 +44,21 @@ tool.onMouseDown= function(event) {
     
     //sending data to Firebase
     
+    /*
+    
     ref.set({
     	json_str : path.exportJSON(path.segments)	
     });
    
     console.log(path.segments);
+   */ 
     
    
-    
-// Feeding data to our custom made classes
-    
-    var mypoint; 
-    var mypoint2;
-    var mypoint3;
-    var mysegment;
-    var myarray = []; //array to store my_segment instances
-    
-    for(i=0;i < path.segments.length; i++){
-        
-    
-    //incoming handle of segment #i
-    mypoint = new my_point(path.segments[i]._handleIn._x,path.segments[i]._handleIn._y); 
-    console.log(mypoint);
-    
-    //outgoing handle of segment #i
-    mypoint2 = new my_point(path.segments[i]._handleOut._x,path.segments[i]._handleOut._y);
-    console.log(mypoint2);    
-    //anchor point of segment #i
-    mypoint3 = new my_point(path.segments[i]._point._x,path.segments[i]._point._y);
-    console.log(mypoint3);
-        
-    //initialising my_segment instance with these points
-    
-    mysegment = new my_segment(mypoint,mypoint2,mypoint3);
-    myarray.push(mysegment);
-    
-    
-    }
-    
-    console.log(myarray);
     
     
         //listening for data
     
+    /*
     ref.on("value",function(snapshot){
         
         var json_path_data = snapshot.val().json_str;
@@ -100,8 +72,12 @@ tool.onMouseDown= function(event) {
 
 });
 
+    */
     
 }
+
+
+
 
 // While the user drags the mouse, points are added to the path
 // at the position of the mouse:
@@ -130,8 +106,61 @@ tool.onMouseUp=function(event) {
 	//var difference = segmentCount - newSegmentCount;
 	//var percentage = 100 - Math.round(newSegmentCount / segmentCount * 100);
 	//textItem.content = difference + ' of the ' + segmentCount + ' segments were removed. Saving ' + percentage + '%';
-    var pathSegments = path.segments;
-
+    //var pathSegments = path.segments;
+    
+// Feeding data to our custom made classes
+    
+    var mypoint; 
+    var mypoint2;
+    var mypoint3;
+    var mysegment;
+    var myarray = []; //array to store my_segment instances
+    
+    for(i=0;i < path.segments.length; i++){
+        
+    
+    //incoming handle of segment #i
+    mypoint = new my_point(path.segments[i]._handleIn._x,path.segments[i]._handleIn._y); 
+    //console.log(mypoint);
+    
+    //outgoing handle of segment #i
+    mypoint2 = new my_point(path.segments[i]._handleOut._x,path.segments[i]._handleOut._y);
+    //console.log(mypoint2);    
+    //anchor point of segment #i
+    mypoint3 = new my_point(path.segments[i]._point._x,path.segments[i]._point._y);
+    //console.log(mypoint3);
+        
+    //initialising my_segment instance with these points
+    
+    mysegment = new my_segment(mypoint,mypoint2,mypoint3);
+    myarray.push(mysegment);
+    
+    
+    }
+    
+    console.log(myarray);
+    console.log(path.segments);
+    
+    
+//here goes our sending function
+    
+    ref.set({
+        myarray
+    });
+    
+    
+// here goes our listening function
+    
+    ref.on("value",function(snapshot){
+        
+        var get_array = snapshot.val();
+        
+        console.log("I'm listening");
+        console.log(get_array);
+    
+});
+    
+    
 }
 
 //color palette stuff goes here
