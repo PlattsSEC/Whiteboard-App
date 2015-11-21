@@ -160,6 +160,14 @@ tool.onMouseUp=function(event) {
     
 });
     
+ /*
+ 
+    TODO: Write a function to fetch the segments from get_array 
+    TODO: Turn those segments into instances of Paper.js Segment class
+    TODO: Pass those instances to the Path method add() to draw the path in the HTML5 Canvas
+ 
+ 
+ */
     
 }
 
