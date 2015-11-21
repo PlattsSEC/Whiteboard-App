@@ -1,10 +1,12 @@
-// Make the paper scope global, by injecting it into window:
+// Enabling strict mode
+"use strict";
 
 // global variable for color 
 var current_color = 'black';
 //Firebase reference
 var ref = new Firebase('https://bok8q9j6znu.firebaseio-demo.com/');
 
+// Make the paper scope global, by injecting it into window:
 paper.install(window);
 window.onload = function() {
 // Setup directly from canvas id:
@@ -47,6 +49,41 @@ tool.onMouseDown= function(event) {
     });
    
     console.log(path.segments);
+    
+   
+    
+// Feeding data to our custom made classes
+    
+    var mypoint; 
+    var mypoint2;
+    var mypoint3;
+    var mysegment;
+    var myarray = []; //array to store my_segment instances
+    
+    for(i=0;i < path.segments.length; i++){
+        
+    
+    //incoming handle of segment #i
+    mypoint = new my_point(path.segments[i]._handleIn._x,path.segments[i]._handleIn._y); 
+    console.log(mypoint);
+    
+    //outgoing handle of segment #i
+    mypoint2 = new my_point(path.segments[i]._handleOut._x,path.segments[i]._handleOut._y);
+    console.log(mypoint2);    
+    //anchor point of segment #i
+    mypoint3 = new my_point(path.segments[i]._point._x,path.segments[i]._point._y);
+    console.log(mypoint3);
+        
+    //initialising my_segment instance with these points
+    
+    mysegment = new my_segment(mypoint,mypoint2,mypoint3);
+    myarray.push(mysegment);
+    
+    
+    }
+    
+    console.log(myarray);
+    
     
         //listening for data
     
@@ -125,7 +162,7 @@ for (var i=0; i<palettes.length;i++)
 }
 
 // the default width
-width = 5;
+var width = 5;
 textItem.content = 'Current Radius : ' + width;
 
 //for increasing width
@@ -153,13 +190,38 @@ textItem.content = 'Current Radius : ' + width;
 
 /*
 
-TODO: create a class for point
-TODO: create a class for segments which would have three instance variables(three points of a segment)
-TODO: figure out how to fetch the three points from the an instance of the Paper.js Segment class
-TODO: store those segments in an array to send it to Firebase
+TODO:#DONE create a class for point 
+TODO:#DONE create a class for segments which would have three instance variables(three points of a segment)
+TODO:#DONE figure out how to fetch the three points from the an instance of the Paper.js Segment class
+TODO:#HALF-DONE store those segments in an array to send it to Firebase
 
 
 */
+   
+class my_point{
+    
+    constructor(x,y){
+    
+        this.x = x;
+        this.y = y;
+    
+    
+    }
 
+}
+    
+    
+class my_segment{
+
+    constructor(x1,x2,x3){
+    
+        this.x1 = x1;
+        this.x2 = x2;
+        this.x3 = x3;
+    
+    
+    }
+}
+  
    
 }
