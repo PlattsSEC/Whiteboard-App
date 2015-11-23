@@ -3,6 +3,7 @@
 
 // global variable for color 
 var current_color = 'black';
+
 //Firebase reference
 var ref = new Firebase('https://bok8q9j6znu.firebaseio-demo.com/');
 
@@ -73,6 +74,14 @@ tool.onMouseDown= function(event) {
 });
 
     */
+    
+
+    
+    
+    
+    
+    
+    
     
 }
 
@@ -148,17 +157,20 @@ tool.onMouseUp=function(event) {
         myarray
     });
     
-    
+ /*   
 // here goes our listening function
+    
+    
     
     ref.on("value",function(snapshot){
         
-        var get_array = snapshot.val();
+        get_array = snapshot.val();
         
         console.log("I'm listening");
         console.log(get_array);
     
 });
+*/
     
  /*
  
@@ -168,6 +180,8 @@ tool.onMouseUp=function(event) {
  
  
  */
+    
+    
     
 }
 
@@ -261,6 +275,50 @@ class my_segment{
     
     }
 }
+    
+    
+        // here goes our listening function
+    
+    
+    //var get_array;
+    ref.on("value",function(snapshot){
+        
+        var get_array = snapshot.val().myarray;
+        
+        console.log("I'm listening");
+        console.log(get_array);
+        console.log(get_array[3].x1.x);
+        console.log(get_array.length);
+        
+       // get_array = _array;
+        
+        var newpoint; //incoming handle
+        var newpoint2; // outgoing handle
+        var newpoint3; // anchor point
+        var newpath = new paper.Path();
+        newpath.strokeColor = current_color;
+    
+    
+        for(var j=0;j < get_array.length; j++){
+    
+        newpoint = new Point(get_array[j].x1.x,get_array[j].x1.y);
+        console.log(newpoint);
+        newpoint2 = new Point(get_array[j].x2.x,get_array[j].x2.y);
+        console.log(newpoint);
+        newpoint3 = new Point(get_array[j].x3.x,get_array[j].x3.y);
+        console.log(newpoint);
+        newpath.add(new Segment(newpoint,newpoint2,newpoint3));
+        console.log(new Segment(newpoint,newpoint2,newpoint3));
+    
+        }
+    
+    
+    
+    
+});
+    
+    
+
   
    
 }
