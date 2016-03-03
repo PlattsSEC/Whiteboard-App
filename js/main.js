@@ -211,7 +211,6 @@ for (var i=0; i<palettes.length;i++)
     current_color = palette.style.backgroundColor;
 	
 }
-
 // the default width
 var width = 5;
 textItem.content = 'Current Radius : ' + width;
