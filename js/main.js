@@ -41,61 +41,14 @@ tool.onMouseDown= function(event) {
 		//fullySelected: true
 	});
     
-    path.strokeColor = current_color;
-    
-    //sending data to Firebase
-    
-    /*
-    
-    ref.set({
-    	json_str : path.exportJSON(path.segments)	
-    });
-   
-    console.log(path.segments);
-   */ 
-    
-   
-    
-    
-        //listening for data
-    
-    /*
-    ref.on("value",function(snapshot){
-        
-        var json_path_data = snapshot.val().json_str;
-
-        console.log(json_path_data);
-        //console.log(path.importJSON(json_path_data));
-        var new_path = new Path();
-        //new_path.add(new_path.importJSON(json_path_data));
-        new_path.add(new_path.importJSON(json_path_data));
-
-
-});
-
-    */
-    
-
-    
-    
-    
-    
-    
-    
+    path.strokeColor = current_color;    
     
 }
-
-
-
 
 // While the user drags the mouse, points are added to the path
 // at the position of the mouse:
 tool.onMouseDrag= function(event) {
 	path.add(event.point);
-
-	// Update the content of the text item to show how many
-	// segments it has:
-	//textItem.content = 'Segment count: ' + path.segments.length;
 }
 
 // When the mouse is released, we simplify the path:
@@ -104,18 +57,7 @@ tool.onMouseUp=function(event) {
 
 	// When the mouse is released, simplify it:
 	path.simplify(10);
-	//copy = path.clone();
-	//copy.fullySelected = true;
-    //copy.position.x += 200;
 
-	// Select the path, so we can see its segments:
-	//path.fullySelected = true;
-
-	//var newSegmentCount = path.segments.length;
-	//var difference = segmentCount - newSegmentCount;
-	//var percentage = 100 - Math.round(newSegmentCount / segmentCount * 100);
-	//textItem.content = difference + ' of the ' + segmentCount + ' segments were removed. Saving ' + percentage + '%';
-    //var pathSegments = path.segments;
     
 // Feeding data to our custom made classes
     
@@ -160,20 +102,6 @@ tool.onMouseUp=function(event) {
         myarray,current_color
     });
     
- /*   
-// here goes our listening function
-    
-    
-    
-    ref.on("value",function(snapshot){
-        
-        get_array = snapshot.val();
-        
-        console.log("I'm listening");
-        console.log(get_array);
-    
-});
-*/
     
  /*
  
