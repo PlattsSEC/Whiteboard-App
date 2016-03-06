@@ -236,13 +236,13 @@ class my_segment{
     
         for(var j=0;j < get_array.length; j++){
     
-        newpoint = new Point(get_array[j].x1.x,get_array[j].x1.y);
+        newpoint = new Point(get_array[j].x1.x,get_array[j].x1.y); //handeleIn
         //console.log(newpoint);
-        newpoint2 = new Point(get_array[j].x2.x,get_array[j].x2.y);
+        newpoint2 = new Point(get_array[j].x2.x,get_array[j].x2.y); // handleOut
         //console.log(newpoint);
-        newpoint3 = new Point(get_array[j].x3.x,get_array[j].x3.y);
+        newpoint3 = new Point(get_array[j].x3.x,get_array[j].x3.y); // anchor point
         //console.log(newpoint);
-        newpath.add(new Segment(newpoint3,newpoint2,newpoint)); //this is where shit gets drawn
+        newpath.add(new Segment(newpoint3,newpoint,newpoint2)); //this is where shit gets drawn
         //console.log(new Segment(newpoint,newpoint2,newpoint3));
     
         }
