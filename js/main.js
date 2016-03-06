@@ -99,7 +99,7 @@ tool.onMouseUp=function(event) {
 //here goes our sending function
     
     ref.set({
-        myarray,current_color
+        myarray,current_color,width
     });
     
     
@@ -218,6 +218,7 @@ class my_segment{
         
         var get_array = snapshot.val().myarray;
 	var draw_color = snapshot.val().current_color;
+    var draw_width = snapshot.val().width;    
         
         console.log("Here's what Firebase sent me");
         console.log(get_array);
@@ -231,7 +232,7 @@ class my_segment{
         var newpoint3; // anchor point
         var newpath = new paper.Path();
         newpath.strokeColor = draw_color;
-	newpath.strokeWidth = width;
+	newpath.strokeWidth = draw_width;
     
     
         for(var j=0;j < get_array.length; j++){
