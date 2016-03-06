@@ -314,7 +314,7 @@ class my_segment{
         //console.log(newpoint);
         newpoint3 = new Point(get_array[j].x3.x,get_array[j].x3.y);
         //console.log(newpoint);
-        newpath.add(new Segment(newpoint3,newpoint2,newpoint)); //this is where shit gets drawn
+        newpath.add(new Segment(newpoint2,newpoint,newpoint3)); //this is where shit gets drawn
         //console.log(new Segment(newpoint,newpoint2,newpoint3));
     
         }
