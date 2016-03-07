@@ -41,61 +41,14 @@ tool.onMouseDown= function(event) {
 		//fullySelected: true
 	});
     
-    path.strokeColor = current_color;
-    
-    //sending data to Firebase
-    
-    /*
-    
-    ref.set({
-    	json_str : path.exportJSON(path.segments)	
-    });
-   
-    console.log(path.segments);
-   */ 
-    
-   
-    
-    
-        //listening for data
-    
-    /*
-    ref.on("value",function(snapshot){
-        
-        var json_path_data = snapshot.val().json_str;
-
-        console.log(json_path_data);
-        //console.log(path.importJSON(json_path_data));
-        var new_path = new Path();
-        //new_path.add(new_path.importJSON(json_path_data));
-        new_path.add(new_path.importJSON(json_path_data));
-
-
-});
-
-    */
-    
-
-    
-    
-    
-    
-    
-    
+    path.strokeColor = current_color;    
     
 }
-
-
-
 
 // While the user drags the mouse, points are added to the path
 // at the position of the mouse:
 tool.onMouseDrag= function(event) {
 	path.add(event.point);
-
-	// Update the content of the text item to show how many
-	// segments it has:
-	//textItem.content = 'Segment count: ' + path.segments.length;
 }
 
 // When the mouse is released, we simplify the path:
@@ -104,18 +57,7 @@ tool.onMouseUp=function(event) {
 
 	// When the mouse is released, simplify it:
 	path.simplify(10);
-	//copy = path.clone();
-	//copy.fullySelected = true;
-    //copy.position.x += 200;
 
-	// Select the path, so we can see its segments:
-	//path.fullySelected = true;
-
-	//var newSegmentCount = path.segments.length;
-	//var difference = segmentCount - newSegmentCount;
-	//var percentage = 100 - Math.round(newSegmentCount / segmentCount * 100);
-	//textItem.content = difference + ' of the ' + segmentCount + ' segments were removed. Saving ' + percentage + '%';
-    //var pathSegments = path.segments;
     
 // Feeding data to our custom made classes
     
@@ -124,6 +66,7 @@ tool.onMouseUp=function(event) {
     var mypoint3;
     var mysegment;
     var myarray = []; //array to store my_segment instances
+
     
     for(i=0;i < path.segments.length; i++){
         
@@ -147,30 +90,18 @@ tool.onMouseUp=function(event) {
     
     }
     
+    console.log("here's what I sent to Firebase");
     console.log(myarray);
+    console.log("here's the original segment array");
     console.log(path.segments);
     
     
 //here goes our sending function
     
     ref.set({
-        myarray
+        myarray,current_color,width
     });
     
- /*   
-// here goes our listening function
-    
-    
-    
-    ref.on("value",function(snapshot){
-        
-        get_array = snapshot.val();
-        
-        console.log("I'm listening");
-        console.log(get_array);
-    
-});
-*/
     
  /*
  
@@ -211,6 +142,7 @@ for (var i=0; i<palettes.length;i++)
     current_color = palette.style.backgroundColor;
 	
 }
+
 // the default width
 var width = 5;
 textItem.content = 'Current Radius : ' + width;
@@ -245,6 +177,8 @@ TODO: DONE create a class for point
 TODO: DONE create a class for segments which would have three instance variables(three points of a segment)
 TODO: DONE figure out how to fetch the three points from the an instance of the Paper.js Segment class
 TODO: DONE store those segments in an array to send it to Firebase
+TODO: DONE create a variable to store the strokewidth and send it to Firebase
+TODO: DONE create a variable to store the strokeColor and send it to Firebase
 
 
 
@@ -276,18 +210,20 @@ class my_segment{
 }
     
     
-        // here goes our listening function
+// here goes our listening function
     
     
     //var get_array;
     ref.on("value",function(snapshot){
         
         var get_array = snapshot.val().myarray;
+	var draw_color = snapshot.val().current_color;
+    var draw_width = snapshot.val().width;    
         
-        console.log("I'm listening");
+        console.log("Here's what Firebase sent me");
         console.log(get_array);
-        console.log(get_array[3].x1.x);
-        console.log(get_array.length);
+        //console.log(get_array[3].x1.x);
+        //console.log(get_array.length);
         
        // get_array = _array;
         
@@ -295,19 +231,20 @@ class my_segment{
         var newpoint2; // outgoing handle
         var newpoint3; // anchor point
         var newpath = new paper.Path();
-        newpath.strokeColor = current_color;
+        newpath.strokeColor = draw_color;
+	newpath.strokeWidth = draw_width;
     
     
         for(var j=0;j < get_array.length; j++){
     
-        newpoint = new Point(get_array[j].x1.x,get_array[j].x1.y);
-        console.log(newpoint);
-        newpoint2 = new Point(get_array[j].x2.x,get_array[j].x2.y);
-        console.log(newpoint);
-        newpoint3 = new Point(get_array[j].x3.x,get_array[j].x3.y);
-        console.log(newpoint);
-        newpath.add(new Segment(newpoint,newpoint2,newpoint3));
-        console.log(new Segment(newpoint,newpoint2,newpoint3));
+        newpoint = new Point(get_array[j].x1.x,get_array[j].x1.y); //handeleIn
+        //console.log(newpoint);
+        newpoint2 = new Point(get_array[j].x2.x,get_array[j].x2.y); // handleOut
+        //console.log(newpoint);
+        newpoint3 = new Point(get_array[j].x3.x,get_array[j].x3.y); // anchor point
+        //console.log(newpoint);
+        newpath.add(new Segment(newpoint3,newpoint,newpoint2)); //this is where shit gets drawn
+        //console.log(new Segment(newpoint,newpoint2,newpoint3));
     
         }
     
@@ -321,3 +258,4 @@ class my_segment{
   
    
 }
+
