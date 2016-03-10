@@ -24,6 +24,7 @@ var textItem = new PointText({
 	fillColor: 'black',
 });
 
+
 var tool = new Tool();
 tool.onMouseDown= function(event) {
 	// If we produced a path before, deselect it:
@@ -101,50 +102,13 @@ tool.onMouseUp=function(event) {
     ref.set({
         myarray,current_color,width
     });
-    
-    
- /*
- 
-    TODO: Write a function to fetch the segments from get_array 
-    TODO: Turn those segments into instances of Paper.js Segment class
-    TODO: Pass those instances to the Path method add() to draw the path in the HTML5 Canvas
- 
- 
- */
-    
-    
+  
     
 }
 
-//color palette stuff goes here
-var palettes = document.getElementsByClassName('palette');
-    
-// adding event listeners to the palettes    
-for (var i=0; i<palettes.length;i++)
-{
-	palettes[i].addEventListener('click',setPalette);
-	
-}
-
-   
- function setPalette(e) 
-{  //identify palette
-	var palette = e.target;
-
-    var active = document.getElementsByClassName('current')[0]; //only one element in the array because there should be only one active element at a time 
-    if (active){
-		active.className = 'palette';
-	     }
-   
-   //give active class
-	palette.className += ' current';
-	
-    current_color = palette.style.backgroundColor;
-	
-}
 
 // the default width
-var width = 5;
+var width = 1;
 textItem.content = 'Current Radius : ' + width;
 
 //for increasing width
@@ -170,50 +134,14 @@ textItem.content = 'Current Radius : ' + width;
 
 }
 
-/*
 
-
-TODO: DONE create a class for point 
-TODO: DONE create a class for segments which would have three instance variables(three points of a segment)
-TODO: DONE figure out how to fetch the three points from the an instance of the Paper.js Segment class
-TODO: DONE store those segments in an array to send it to Firebase
-TODO: DONE create a variable to store the strokewidth and send it to Firebase
-TODO: DONE create a variable to store the strokeColor and send it to Firebase
-
-
-
-*/
    
-class my_point{
-    
-    constructor(x,y){
-    
-        this.x = x;
-        this.y = y;
-    
-    
-    }
-
-}
-    
-    
-class my_segment{
-
-    constructor(x1,x2,x3){
-    
-        this.x1 = x1;
-        this.x2 = x2;
-        this.x3 = x3;
-    
-    
-    }
-}
-    
-    
 // here goes our listening function
     
     
     //var get_array;
+    
+
     ref.on("value",function(snapshot){
         
         var get_array = snapshot.val().myarray;
