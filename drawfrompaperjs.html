@@ -5,16 +5,22 @@
 	<meta charset="UTF-8">
   <title>Drawing App</title>
   <link rel="stylesheet" href="css/master2.css">
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<!--Google Web fonts-->
+    <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
 	 
-	<div id="toolbox">
-
-         <div id="colours"> 
-             <br>Pick any color <br> 
-			<button id="incrad"  class="radcontrol">+</button>
-			<button id="decrad"  class="radcontrol">-</button>
+	<div id="toolbox" class="navbar navbar-inverse navbar-fixed-top" style="font-family: 'Lobster', cursive; color:aliceblue;">
+        
+        <div class="container">
+        <div class="navbar-header">
+        <h1>myonlinewhiteboard</h1>    
+        </div>
+        
+         <div id="colours" class="collapse navbar-collapse" style="padding-left:30px;">  
 				<div class="palette" style="background-color:black"></div>
 				<div class="palette" style="background-color:cyan"></div>
 				<div class="palette" style="background-color:green"></div>
@@ -25,9 +31,14 @@
 				<div class="palette" style="background-color:indigo"></div>
 				<div class="palette" style="background-color:white"></div>
 			</div>
-			<div id="ereaser">
+			<div id="ereaser" style="padding-left:40px;">
+
+                <input type="submit" id="incrad" class="btn btn-lg radcontrol" value="+" id="find"/>
+            <input type="submit" id="decrad" class="btn btn-lg radcontrol" value="-" id="find"/>
+			
 			<img src="Eraser.png">
 			</div>
+        </div>
 	</div>
 
 	

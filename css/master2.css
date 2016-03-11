@@ -6,12 +6,19 @@
 .palette {
 	width:  30px;
 	height: 30px;
-	border: 2px solid black;
+	border: 0px solid black;
 	box-shadow: inset 0px 1px 1px rgba(255, 255, 255, 0.5), 0px 1px 1px rgba(255, 255, 255, 0.5);
 	display: inline-block;
 	margin:left;
 	background-color:purple;
-	padding: 5px;
+	padding: 3px;
+}
+
+.palette:hover{
+
+opacity: 0.6;
+transition: opacity 0.4s;
+
 }
 
 .palette.current{
