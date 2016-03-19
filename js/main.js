@@ -1,3 +1,18 @@
+//random ass Segment checking function
+
+function SegmentCheck(segment1,segment2){
+
+if (segment1.x1 == segment2.x1){
+
+    return true;
+
+}
+
+
+}
+
+
+
 // Enabling strict mode
 "use strict";
 
@@ -20,7 +35,7 @@ var path = new paper.Path();
 
 var textItem = new PointText({
 	content: 'Click and drag to draw a line.',
-	point: new Point(20, 30),
+	point: new Point(500, 30),
 	fillColor: 'black',
 });
 
@@ -172,11 +187,27 @@ textItem.content = 'Current Radius : ' + width;
         newpoint3 = new Point(get_array[j].x3.x,get_array[j].x3.y); // anchor point
         //console.log(newpoint);
         newpath.add(new Segment(newpoint3,newpoint,newpoint2)); //this is where shit gets drawn
-        //console.log(new Segment(newpoint,newpoint2,newpoint3));
+        
+    
     
         }
     
-    
+        for(var k=0; k < get_array.length; k++){
+        
+            for(var l=0; l < get_array.length; l++){
+                
+                //console.log("This is working",get_array[k]);
+            
+                    if((SegmentCheck(get_array[k],get_array[l]))){
+                    
+                        console.log("COMMON POINT FOUND!!!!")
+                    
+                    
+                    }
+            
+            }
+        
+        }
     
     
 });

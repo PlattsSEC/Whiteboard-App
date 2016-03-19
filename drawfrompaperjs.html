@@ -12,8 +12,10 @@
 </head>
 
 <body>
-	 
+<!----	 
 	<div id="toolbox" class="navbar navbar-inverse navbar-fixed-top" style="font-family: 'Lobster', cursive; color:aliceblue;">
+
+
         
         <div class="container">
         <div class="navbar-header">
@@ -32,22 +34,67 @@
 				<div class="palette" style="background-color:white"></div>
 			</div>
 			<div id="ereaser" style="padding-left:40px;">
-
-                <input type="submit" id="incrad" class="btn btn-lg radcontrol" value="+" id="find"/>
-            <input type="submit" id="decrad" class="btn btn-lg radcontrol" value="-" id="find"/>
-			
+                
+  --->                
+                <button type="button" class="btn btn-primary btn-lg" id="incrad" style="margin-left:80px;">+</button>
+                <button type="button" class="btn btn-primary btn-lg" id="decrad">-</button>
+                
+  <!---          
+			     
 			<img src="Eraser.png">
 			</div>
         </div>
-	</div>
 
-	
+</div>
+--->
+  
+    
+ 
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation" style="font-family: 'Lobster', cursive;">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">
+                     <span class="light">myonline</span>whiteboard
+                </a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#about">colors</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#download">brushes</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#contact">more</a>
+                    </li>
+                </ul>
+  
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+    
+
+
 
 
          <canvas id="myCanvas" width="800" height="500" style= "border:1px solid black"></canvas>
 
     
 <script type="text/javascript" src="js/paper-full.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	 <script src="https://cdn.firebase.com/js/client/2.3.1/firebase.js"></script>
 <script type="text/javascript" src="js/colorpal.js"></script>
 <script type="text/javascript" src="js/customclass.js"></script>
