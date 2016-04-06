@@ -5,7 +5,7 @@
 var current_color = 'black';
 
 //Firebase reference
-var ref = new Firebase('https://bok8q9j6znu.firebaseio-demo.com/');
+var ref = new Firebase('https://psuwhiteboard.firebaseio.com/');
 
 // Make the paper scope global, by injecting it into window:
 paper.install(window);
@@ -150,6 +150,7 @@ textItem.content = 'Current Radius : ' + width;
         
         console.log("Here's what Firebase sent me");
         console.log(get_array);
+	console.log(get_array[0][2]);
         //console.log(get_array[3].x1.x);
         //console.log(get_array.length);
         
@@ -165,11 +166,14 @@ textItem.content = 'Current Radius : ' + width;
     
         for(var j=0;j < get_array.length; j++){
     
-        newpoint = new Point(get_array[j].x1.x,get_array[j].x1.y); //handeleIn
+        //newpoint = new Point(get_array[j].x1.x,get_array[j].x1.y); 
+	newpoint = new Point(get_array[j][0][0],get_array[j][0][1]); //handeleIn
         //console.log(newpoint);
-        newpoint2 = new Point(get_array[j].x2.x,get_array[j].x2.y); // handleOut
+        //newpoint2 = new Point(get_array[j].x2.x,get_array[j].x2.y); 
+	newpoint2 = new Point(get_array[j][1][0],get_array[j][1][1]); // handleOut
         //console.log(newpoint);
-        newpoint3 = new Point(get_array[j].x3.x,get_array[j].x3.y); // anchor point
+        //newpoint3 = new Point(get_array[j].x3.x,get_array[j].x3.y); 
+	newpoint3 = new Point(get_array[j][2][0],get_array[j][2][1]); // anchor point
         //console.log(newpoint);
         newpath.add(new Segment(newpoint3,newpoint,newpoint2)); //this is where shit gets drawn
         //console.log(new Segment(newpoint,newpoint2,newpoint3));

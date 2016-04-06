@@ -1,3 +1,4 @@
+/*
 "use strict"; 
 class my_point{
     
@@ -23,3 +24,16 @@ class my_segment{
     
     }
 }
+*/
+
+var my_point = function(x,y){
+
+	return [x,y];
+
+};
+
+var my_segment = function(x1,x2,x3){
+
+	return [x1,x2,x3];
+
+};
